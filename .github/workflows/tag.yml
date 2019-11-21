@@ -25,3 +25,4 @@ jobs:
         DEFAULT_BUMP: patch
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         REPO_OWNER: sjauld
+        WITH_V: true
