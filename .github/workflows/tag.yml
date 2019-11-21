@@ -16,25 +16,12 @@ jobs:
         npm audit
 
   tag:
-    name: bump semver
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: bump semver
-      run: |
-        # if we have a blank tag, get all commits
-        if [ -z "$t" ]
-        then
-            log=$(git log --pretty=oneline)
-            t=0.0.0
-        # otherwise, get commits since last tag
-        else
-            log=$(git log $t..HEAD --pretty=oneline)
-        fi
-
-        # supports #major, #minor, #patch (default 'patch')
-        case "$log" in
-            *#major* ) new=$(semver bump major $t);;
-            *#minor* ) new=$(semver bump minor $t);;
-            * ) new=$(semver bump patch $t);;
-        esac
+    - uses: actions/checkout@master
+    - name: Bump version and push tag
+      uses: anothrNick/github-tag-action@master
+      env:
+        DEFAULT_BUMP: patch
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        REPO_OWNER: sjauld
