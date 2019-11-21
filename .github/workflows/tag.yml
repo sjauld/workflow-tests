@@ -10,7 +10,12 @@ jobs:
     name: bump semver
     runs-on: ubuntu latest
     steps:
+    - name: hello world
+      run: |
+        echo "Hello world"
+
     - name: bump semver
+    - uses: actions/checkout@v1
       run: |
         # if we have a blank tag, get all commits
         if [ -z "$t" ]
@@ -22,9 +27,9 @@ jobs:
             log=$(git log $t..HEAD --pretty=oneline)
         fi
 
-        # supports #major, #minor, #patch (anything else will be 'minor')
+        # supports #major, #minor, #patch (default 'patch')
         case "$log" in
             *#major* ) new=$(semver bump major $t);;
-            *#patch* ) new=$(semver bump patch $t);;
-            * ) new=$(semver bump minor $t);;
+            *#minor* ) new=$(semver bump minor $t);;
+            * ) new=$(semver bump patch $t);;
         esac
