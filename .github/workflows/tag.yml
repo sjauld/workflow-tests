@@ -10,12 +10,12 @@ jobs:
     name: bump semver
     runs-on: ubuntu latest
     steps:
+    - uses: actions/checkout@v1
     - name: hello world
       run: |
         echo "Hello world"
 
     - name: bump semver
-      uses: actions/checkout@v1
       run: |
         # if we have a blank tag, get all commits
         if [ -z "$t" ]
