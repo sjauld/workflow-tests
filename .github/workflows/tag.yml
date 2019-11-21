@@ -15,7 +15,7 @@ jobs:
         echo "Hello world"
 
     - name: bump semver
-    - uses: actions/checkout@v1
+      uses: actions/checkout@v1
       run: |
         # if we have a blank tag, get all commits
         if [ -z "$t" ]
