@@ -6,15 +6,18 @@ on:
       - master
 
 jobs:
+  hello:
+    name: hellp world
+    runs-on: ubuntu latest
+    steps:
+    - name: hello world
+      run: |
+        echo "Hello world"
   tag:
     name: bump semver
     runs-on: ubuntu latest
     steps:
     - uses: actions/checkout@v1
-    - name: hello world
-      run: |
-        echo "Hello world"
-
     - name: bump semver
       run: |
         # if we have a blank tag, get all commits
