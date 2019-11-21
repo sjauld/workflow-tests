@@ -10,7 +10,7 @@ jobs:
     name: bump semver
     runs-on: ubuntu latest
     steps:
-      name: bump semver
+    - name: bump semver
       run: |
         # if we have a blank tag, get all commits
         if [ -z "$t" ]
