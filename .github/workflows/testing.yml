@@ -1,8 +1,9 @@
 name: Tag test
 
 on: 
-  release:
-    - created
+  push:
+    tags:
+      - '**'
 
 env:
   ref: ${{ github.ref }}
