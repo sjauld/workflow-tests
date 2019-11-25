@@ -1,0 +1,22 @@
+name: Tag test
+
+on: 
+  push:
+    tags:
+      - '**'
+
+env:
+  ref: ${{ github.ref }}
+  tag: ${${{ github.ref }}##*/}
+
+jobs:
+  tag_test:
+    name: Tag Test
+    runs_on: ubuntu-latest
+    steps:
+    - name: Testing
+      run: |
+        echo ${{ github.ref }}
+        echo ${${{ github.ref }}##*/}
+        echo ${{ env.ref }}
+        echo ${{ env.tag }}
