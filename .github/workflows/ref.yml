@@ -1,9 +1,12 @@
 name: Check ref
+
 on:
   push
+
 jobs:
-  name: ref
-  runs-on: ubuntu-latest
-  steps:
+  ref:
     name: ref
-    run: echo ${{ github.ref }}
+    runs-on: ubuntu-latest
+    steps:
+    - name: ref
+      run: echo ${{ github.ref }}
