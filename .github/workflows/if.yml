@@ -1,0 +1,15 @@
+name: If
+on:
+  push
+  
+env:
+  this: true
+
+
+jobs:
+  test-if:
+    name: Test how to run an if in a job
+    if: env.this
+    steps:
+    - name: Yes
+      run: echo "Yes! ${{ env.this }}"
