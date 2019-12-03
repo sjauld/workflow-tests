@@ -8,6 +8,7 @@ env:
 
 jobs:
   test-if:
+    runs-on: ubuntu-linux
     name: Test how to run an if in a job
     if: env.this
     steps:
