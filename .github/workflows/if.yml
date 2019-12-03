@@ -13,7 +13,8 @@ jobs:
     steps:
     - name: Yes
       run: |
-        if [ ! ${{env.this}} ]; then
+        echo "Checking if we should lint"
+        if [ ! ${ {env.this }} ]; then
           echo "Not linting"
           exit 0
         fi
