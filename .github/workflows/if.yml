@@ -3,14 +3,19 @@ on:
   push
   
 env:
-  this: true
+  this: false
 
 
 jobs:
   test-if:
     runs-on: ubuntu-linux
     name: Test how to run an if in a job
-    if: env.this
     steps:
     - name: Yes
-      run: echo "Yes! ${{ env.this }}"
+      run: |
+        if [ ! ${{env.this}} ]; then
+          echo "Not linting"
+          exit 0
+        fi
+        echo "Linting!"
+        exit 1
