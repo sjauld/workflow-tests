@@ -8,13 +8,13 @@ env:
 
 jobs:
   test-if:
-    runs-on: ubuntu-linux
+    runs-on: ubuntu-latest
     name: Test how to run an if in a job
     steps:
     - name: Yes
       run: |
         echo "Checking if we should lint"
-        if [ ! ${ {env.this }} ]; then
+        if [ ! ${{ env.this }} ]; then
           echo "Not linting"
           exit 0
         fi
