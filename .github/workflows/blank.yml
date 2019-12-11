@@ -1,0 +1,20 @@
+name: 'Windo$e'
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - name: What is going on here?
+      run: |
+        Get-Location
+        docker run --rm mcr.microsoft.com/dotnet/framework/sdk:4.8 Get-Location        
+        Get-Item *
+        docker run --rm mcr.microsoft.com/dotnet/framework/sdk:4.8 Get-Item *
+        Get-Item ..\*
+        docker run --rm mcr.microsoft.com/dotnet/framework/sdk:4.8 Get-Item ..\*
+        Get-Item ..\..\*
+        docker run --rm mcr.microsoft.com/dotnet/framework/sdk:4.8 Get-Item ..\..\*
