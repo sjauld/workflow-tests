@@ -1,6 +1,8 @@
 name: If
 on:
-  push
+  push:
+    paths:
+    - '.github/workflows/if.yml'
   
 env:
   this: false
