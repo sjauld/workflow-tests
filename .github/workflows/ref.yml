@@ -1,7 +1,9 @@
 name: Check ref
 
 on:
-  push
+  push:
+    paths:
+    - '.github/workflows/ref.yml'
 
 jobs:
   ref:
