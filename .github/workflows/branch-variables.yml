@@ -1,0 +1,19 @@
+name: BranchVariables
+
+on: [push]
+
+env:
+  app_env:
+    master: PRODUCTION
+    staging: STAGING
+    default: DEVELOPMENT
+
+jobs:
+  test_env:
+    name: Test env behaviour
+    runs-on: ubuntu-latest
+    steps:
+    - name: testing
+      run: |
+        echo ${{ env.app_env }}
+ 
