@@ -4,7 +4,7 @@
     "description": "A test",
     "main": "index.js",
     "dependencies": {
-        "aws-sdk": "^2.577"
+        "aws-sdk": "^2.814"
     },
     "devDependencies": {
         "eslint": "^5.14.1",
